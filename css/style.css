@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+}
+
+/* -------------  Base ------------------- */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #1f2933;
+    line-height: 1.6;
+
+    background-image: url("../images/nasams-front-3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Dark overlay  */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: -1;
+}
+
+/* -------------   Header -----------  */
+header {
+    background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
+    padding: 20px 0;
+}
+
+/* -------------------  Navbar container ------------------- */
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------------- Left side: menu ----------*/
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: 600;
+}
+
+.nav-left a:hover {
+    text-decoration: underline;
+}
+
+/* ------------ Right side: logos ------------------- */
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 15px;
+}
+
+.usn-logo {
+    height: 45px;
+}
+
+.kda-logo {
+    height: 60px;
+}
+
+/* --------------- Global card ---------- */
+main {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 50px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* --------------   Text ------------- */
+h1 {
+    color: #0f2f5f;  
+    margin-top: 0;
+}
+
+h2 {
+    margin-top: 50px;
+    color: #0f2f5f;
+}
+
+p,
+li {
+    color: #1f2933;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ----------------   Footer ------------ */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+/* ------------   About us ---------------- */
+.intro {
+    max-width: 700px;
+    margin-bottom: 40px;
+    color: #1f2933;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.team-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-card h3 {
+    margin: 10px 0 5px;
+    color: #0f2f5f;
+}
+
+.team-card .role {
+    font-weight: 600;
+    color: #1f4f8f;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: #1f2933;
+}
+
+/* --------------------   Updates ------------- */
+.timeline-title {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #0f2f5f;
+}
+
+.phase-title {
+    text-align: center;
+    margin: 80px 0 40px;
+    font-size: 1.8rem;
+    color: #0f2f5f;
+}
+
+.timeline-alt {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.timeline-alt::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background-color: rgba(15, 47, 95, 0.4);
+    transform: translateX(-50%);
+}
+
+.timeline-row {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+}
+
+.timeline-row.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-row.right {
+    left: 50%;
+}
+
+.timeline-row::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    width: 14px;
+    height: 14px;
+    background-color: #0f2f5f;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-row.left::before {
+    right: -7px;
+}
+
+.timeline-row.right::before {
+    left: -7px;
+}
+
+/* ------------- Timeline content------------ */
+.timeline-row .content {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 22px 26px;
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.timeline-row .content h3 {
+    margin-top: 0;
+    color: #0f2f5f;
+}
+
+.timeline-row .date {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1f4f8f;
+}
