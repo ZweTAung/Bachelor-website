@@ -3,31 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Prosjekt – Bachelorgruppe</title>
+    <script>
+        (function () {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js" defer></script>
 </head>
 <body>
 
 <header>
-    <div class="navbar">
-        <div class="nav-left">
-            <a href="index.html">Hjem</a>
-            <a href="project.html">Prosjekt</a>
-            <a href="updates.html">Oppdateringer</a>
-            <a href="about.html">Om oss</a>
+        <div class="navbar">
+            <div class="nav-left">
+
+                <!-- THEME TOGGLE -->
+                <label for="themeToggle" class="theme-toggle">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="toggle-track">
+                        <span class="toggle-thumb">
+
+                            <!-- SUN -->
+                            <svg class="thumb-icon sun" viewBox="0 0 24 24" aria-hidden="true">
+                                <!-- Sun core -->
+                                <circle cx="12" cy="12" r="5.5" fill="currentColor" />
+
+                                <!-- Rays -->
+                                <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <line x1="12" y1="1.5" x2="12" y2="4" />
+                                    <line x1="12" y1="20" x2="12" y2="22.5" />
+                                    <line x1="4.2" y1="4.2" x2="6" y2="6" />
+                                    <line x1="18" y1="18" x2="19.8" y2="19.8" />
+                                    <line x1="1.5" y1="12" x2="4" y2="12" />
+                                    <line x1="20" y1="12" x2="22.5" y2="12" />
+                                    <line x1="4.2" y1="19.8" x2="6" y2="18" />
+                                    <line x1="18" y1="6" x2="19.8" y2="4.2" />
+                                </g>
+                            </svg>
+
+
+                            <!-- MOON -->
+                            <svg class="thumb-icon moon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M21 12.8A9 9 0 1 1 11.2 3
+                                     a7 7 0 0 0 9.8 9.8z" />
+                            </svg>
+
+                        </span>
+                    </span>
+                </label>
+
+                <!-- Navigation -->
+                <a href="index.html">Hjem</a>
+                <a href="project.html">Prosjekt</a>
+                <a href="updates.html">Oppdateringer</a>
+                <a href="about.html">Om oss</a>
+            </div>
+
+            <!-- RIGHT: logos -->
+            <div class="nav-right">
+                <a href="https://www.usn.no" target="_blank" rel="noopener">
+                    <img src="images/USN-logo_hvit.png" alt="Universitetet i Sørøst-Norge" class="logo usn-logo">
+                </a>
+
+                <a href="https://www.kongsberg.com" target="_blank" rel="noopener">
+                    <img src="images/kongsberg_logo_white_text.png" alt="Kongsberg Defence & Aerospace"
+                        class="logo kda-logo">
+                </a>
+            </div>
+
         </div>
-
-        <div class="nav-right">
-            <a href="https://www.usn.no" target="_blank" rel="noopener">
-              <img src="images/USN-logo_hvit.png" alt="Universitetet i Sørøst-Norge" class="logo usn-logo">
-           </a>
-
-            <a href="https://www.kongsberg.com" target="_blank" rel="noopener">
-              <img src="images/kongsberg_logo_white_text.png" alt="Kongsberg Defence & Aerospace" class="logo kda-logo">
-           </a>
-        </div>
-    </div>
-</header>
-
+    </header>
 
 <main>
     <h1>Prosjektbeskrivelse</h1>

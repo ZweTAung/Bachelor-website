@@ -2,14 +2,44 @@
     box-sizing: border-box;
 }
 
+
+/* Light mode (default) */
+:root {
+    --text-main: #1f2933;
+    --heading-color: #0f2f5f;
+
+    --card-bg: rgba(255, 255, 255, 0.65);
+    --card-bg-strong: rgba(255, 255, 255, 0.75);
+
+    --overlay-dark: rgba(0, 0, 0, 0.35);
+
+    --bg-image: url("../images/Backdrop.jpg");
+}
+
+
+/* Dark mode */
+
+html.dark {
+    --text-main: #e5e7eb;
+    --heading-color: #93c5fd;
+    --card-bg: rgba(15, 23, 42, 0.75);
+    --card-bg-strong: rgba(15, 23, 42, 0.85);
+    --overlay-dark: rgba(0, 0, 0, 0.6);
+
+    --bg-image: url("../images/Backdrop-dark.jpg");
+}
+
+
+
 /* -------------  Base ------------------- */
 body {
     margin: 0;
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    color: #1f2933;
+    color: var(--text-main);
     line-height: 1.6;
+    /*transition: background-image 0.4s ease;*/ 
 
-    background-image: url("../images/Backdrop.jpg");
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,7 +51,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--overlay-dark);
     z-index: -1;
 }
 
@@ -29,7 +59,20 @@ body::before {
 header {
     background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
     padding: 20px 0;
+    transition: background 0.4s ease;
 }
+
+html.dark header {
+    background: linear-gradient(90deg,
+            #020617,
+            #0f172a);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    background: linear-gradient(90deg,
+            rgba(2, 6, 23, 0.9),
+            rgba(15, 23, 42, 0.9));
+}
+
 
 /* -------------------  Navbar container ------------------- */
 .navbar {
@@ -46,12 +89,13 @@ header {
 .nav-left {
     display: flex;
     align-items: center;
+    gap: 2rem;
 }
 
 .nav-left a {
     color: white;
     text-decoration: none;
-    margin-right: 25px;
+    margin-right: 0;
     font-weight: 600;
 }
 
@@ -77,9 +121,124 @@ header {
     height: 60px;
 }
 
+
+/*------------------Toggle-button-------------*/
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Skjul checkbox korrekt */
+.theme-toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Track (glass look) */
+.toggle-track {
+    position: relative;
+    width: 92px;
+    height: 40px;
+    border-radius: 999px;
+    cursor: pointer;
+
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.05));
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+        0 8px 20px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    box-sizing: border-box;
+
+    transition: background 0.4s ease;
+}
+
+
+
+
+/* -----  Thumb ------- */
+.toggle-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background: linear-gradient(145deg, #e5e7eb, #9ca3af);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.45);
+
+    transition: transform 0.35s cubic-bezier(.4, 0, .2, 1),
+        background 0.35s ease;
+    z-index: 1;
+}
+
+
+.thumb-icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+
+/* -------------------- DARK MODE ACTIVE --------------- */
+
+.theme-toggle input:checked+.toggle-track {
+    background: linear-gradient(145deg,
+            rgba(15, 23, 42, 0.9),
+            rgba(2, 6, 23, 0.9));
+}
+
+.theme-toggle input:checked+.toggle-track .toggle-thumb {
+    transform: translateX(52px);
+    background: linear-gradient(145deg,
+            #9ca3af,
+            #6b7280);
+}
+
+
+
+/* ---------- Icon animation --------- */
+
+
+
+/* Light mode */
+.theme-toggle input:not(:checked)+.toggle-track .sun {
+    opacity: 1;
+}
+
+/* Dark mode */
+.theme-toggle input:checked+.toggle-track .moon {
+    opacity: 1;
+}
+
+
+
+
+
 /* --------------- Global card ---------- */
 main {
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
@@ -95,20 +254,18 @@ main {
 }
 
 /* --------------   Text ------------- */
-h1 {
-    color: #0f2f5f;  
-    margin-top: 0;
-}
 
-h2 {
-    margin-top: 50px;
-    color: #0f2f5f;
+h1,
+h2,
+h3 {
+    color: var(--heading-color);
 }
 
 p,
 li {
-    color: #1f2933;
+    color: var(--text-main);
 }
+
 
 ul {
     padding-left: 20px;
@@ -140,7 +297,7 @@ footer {
 }
 
 .team-card {
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--card-bg-strong);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -253,7 +410,7 @@ footer {
 
 /* ------------- Timeline content------------ */
 .timeline-row .content {
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
