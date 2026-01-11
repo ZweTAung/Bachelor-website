@@ -8,6 +8,7 @@ body {
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
     color: #1f2933;
     line-height: 1.6;
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
 
     background-image: url("../images/Backdrop.jpg");
     background-size: cover;
@@ -29,6 +30,7 @@ body::before {
 header {
     background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
     padding: 20px 0;
+    box-shadow: 0 0 12px 10px;
 }
 
 /* -------------------  Navbar container ------------------- */
@@ -118,7 +120,7 @@ li {
     margin-bottom: 8px;
 }
 
-/* ----------------   Footer ------------ */
+/* ----------------   Footer "bachelor group 2..." ------------ */
 footer {
     text-align: center;
     padding: 30px;
@@ -186,6 +188,7 @@ footer {
 }
 
 /* --------------------   Updates ------------- */
+/* Sprintene i hver sin boks */
 .timeline-title {
     text-align: center;
     margin-bottom: 60px;
@@ -277,3 +280,64 @@ footer {
     margin-bottom: 10px;
     color: #1f4f8f;
 }
+
+/* -------------  Footer -------------- */
+
+.footer-three-container {
+    background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
+    padding: 20px 0;
+    box-shadow: 0 0 12px 10px;
+    box-shadow: rgba(0, 0, 0, 0.35); /*Shadow color!*/
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-three-container .footer-left {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 22px 26px;
+    border-radius: 50px;
+    width: 400px;
+    height: 200px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.footer-three-container .footer-center {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 22px 26px;
+    border-radius: 50px;
+    width: 400px;
+    height: 200px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    font-size: 1rem;
+    text-align: center;
+ }
+
+.footer-three-container .footer-right {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 22px 26px;
+    border-radius: 50px;
+    width: 400px;
+    height: 200px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+ }
+
+/* -------------  Media Queries -------------- */
