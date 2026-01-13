@@ -286,8 +286,7 @@ footer {
 .footer-three-container {
     background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
     padding: 20px 0;
-    box-shadow: 0 0 12px 10px;
-    box-shadow: rgba(0, 0, 0, 0.35); /*Shadow color!*/
+    box-shadow: 0 15px 35 rgba(0, 0, 0, 0.35); /*Shadow color!*/
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -305,7 +304,7 @@ footer {
         0 10px 30px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
     margin: 0;
-    font-size: 1rem;
+    font-size: 16px;
     text-align: center;
 }
 
@@ -320,7 +319,7 @@ footer {
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    font-size: 1rem;
+    font-size: 16px
     text-align: center;
  }
 
@@ -336,7 +335,7 @@ footer {
         0 10px 30px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
     margin: 0;
-    font-size: 1rem;
+    font-size: 16px;
     text-align: center;
  }
 
