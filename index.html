@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
     <meta charset="UTF-8">
-    <title>Bachelor Thesis – Group 2</title>
+    <title>Bachelorprosjekt – Gruppe 2</title>
+    <script>
+        (function () {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+            }
+        })();
+    </script>
+
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js" defer></script>
 </head>
+
 <body>
+    <header>
+        <div class="navbar">
+            <div class="nav-left">
+
+                <!-- THEME TOGGLE -->
+                <label for="themeToggle" class="theme-toggle">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="toggle-track">
+                        <span class="toggle-thumb">
+
+                            <!-- SUN -->
+                            <svg class="thumb-icon sun" viewBox="0 0 24 24" aria-hidden="true">
+                                <!-- Sun core -->
+                                <circle cx="12" cy="12" r="5.5" fill="currentColor" />
+
+                                <!-- Rays -->
+                                <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <line x1="12" y1="1.5" x2="12" y2="4" />
+                                    <line x1="12" y1="20" x2="12" y2="22.5" />
+                                    <line x1="4.2" y1="4.2" x2="6" y2="6" />
+                                    <line x1="18" y1="18" x2="19.8" y2="19.8" />
+                                    <line x1="1.5" y1="12" x2="4" y2="12" />
+                                    <line x1="20" y1="12" x2="22.5" y2="12" />
+                                    <line x1="4.2" y1="19.8" x2="6" y2="18" />
+                                    <line x1="18" y1="6" x2="19.8" y2="4.2" />
+                                </g>
+                            </svg>
 
 
-<header>
-    <div class="navbar">
-        <div class="nav-left">
-            <a href="index.html">Home</a>
-            <a href="project.html">Project</a>
-            <a href="updates.html">Updates</a>
-            <a href="about.html">About Us</a>
+                            <!-- MOON -->
+                            <svg class="thumb-icon moon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M21 12.8A9 9 0 1 1 11.2 3
+                                     a7 7 0 0 0 9.8 9.8z" />
+                            </svg>
+
+                        </span>
+                    </span>
+                </label>
+
+                <!-- Navigation -->
+                <a href="index.html">Hjem</a>
+                <a href="project.html">Prosjekt</a>
+                <a href="updates.html">Oppdateringer</a>
+                <a href="about.html">Om oss</a>
+            </div>
+
+            <!-- RIGHT: logos -->
+            <div class="nav-right">
+                <a href="https://www.usn.no" target="_blank" rel="noopener">
+                    <img src="images/USN-logo_hvit.png" alt="Universitetet i Sørøst-Norge" class="logo usn-logo">
+                </a>
+
+                <a href="https://www.kongsberg.com" target="_blank" rel="noopener">
+                    <img src="images/kongsberg_logo_white_text.png" alt="Kongsberg Defence & Aerospace"
+                        class="logo kda-logo">
+                </a>
+            </div>
+
         </div>
-
-        <div class="nav-right">
-            <a href="https://www.usn.no" target="_blank" rel="noopener">
-              <img src="images/USN-logo_hvit.png" alt="Universitetet i Sørøst-Norge" class="logo usn-logo">
-           </a>
-
-            <a href="https://www.kongsberg.com" target="_blank" rel="noopener">
-              <img src="images/kongsberg_logo_white_text.png" alt="Kongsberg Defence & Aerospace" class="logo kda-logo">
-           </a>
-        </div>
-    </div>
-</header>
+    </header>
 
 
 <main>
@@ -47,16 +97,60 @@
         fly low make them difficult for traditional defenses to counter.
     </p>
 
-    </section>
+    </main>
 
+    <!-- 
+    <footer>
+        2026 – Bachelorgruppe 2 – USN
+    </footer>
+    -->
 
+<footer class="site-footer compact-footer">
+    <div class="footer-content">
 
+        <!-- Project / Group -->
+        <div class="footer-section footer-brand">
+            <h3>VALOR</h3>
+            <p>
+                Bachelorgruppe 2 – USN  
+                <br>
+                Kongsberg Defence & Aerospace
+            </p>
+        </div>
 
-</main>
+        <!-- Kontakt -->
+        <div class="footer-section">
+            <h3>Kontakt</h3>
+            <p>
+                <a href="mailto:TBD@usn.no">
+                    blablablabl@usn.no
+                </a><br>
+                Bergseminaret et sted 
+            </p>
+
+        </div>
+
+        <!-- Links -->
+        <div class="footer-section">
+            <h3>Lenker</h3>
+            <ul>
+                <li><a href="about.html">Om oss</a></li>
+                <li><a href="project.html">Prosjekt</a></li>
+                <li><a href="updates.html">Oppdateringer</a></li>
+            </ul>
+        </div>
+        
+    </div>
 
 <footer>
     2026 – Bachelor Thesis Group 2 – USN
 </footer>
 
+
+
+
+
+
 </body>
+
 </html>
