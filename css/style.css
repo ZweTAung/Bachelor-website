@@ -301,18 +301,9 @@ li {
     margin-bottom: 8px;
 }
 
+
+
 /* ----------------   Footer ------------ */
-/*
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #ddd;
-    font-size: 0.9rem;
-}
-*/ 
-
-
-
 
 .site-footer {
     background-color: var(--card-bg);
@@ -412,9 +403,6 @@ footer {
 
 
 
-
-
-
 /* ------------   About us ---------------- */
 .intro {
     max-width: 700px;
@@ -473,6 +461,9 @@ footer {
     font-size: 0.9rem;
     color: #1f2933;
 }
+
+
+
 
 /* --------------------   Updates ------------- */
 /* Sprintene i hver sin boks */
@@ -540,6 +531,9 @@ footer {
 .timeline-row.right::before {
     left: -7px;
 }
+
+
+
 
 /* ------------- Timeline content------------ */
 .timeline-row .content {
