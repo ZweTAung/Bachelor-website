@@ -11,6 +11,7 @@
     --card-bg: rgba(255, 255, 255, 0.65);
     --card-bg-strong: rgba(255, 255, 255, 0.75);
     --page-padding: 2px; 
+    --content-width: 1100px; 
 
     --overlay-dark: rgba(0, 0, 0, 0.35);
 
@@ -29,7 +30,7 @@ html.dark {
 
     --overlay-dark: rgba(0, 0, 0, 0.6);
 
-    --bg-image: url("../images/Backdrop-dark.jpg");
+    --bg-image: url("../images/valor_wallpaper_dark.png");
 }
 
 
@@ -46,7 +47,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 
 /* Dark overlay  */
@@ -88,41 +89,63 @@ html.dark header {
     align-items: center;
 }
 
-/* --------------- Left side: menu ----------*/
-.nav-left {
+
+/* ---------- Navbar layout ---------- */
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* VALOR – hovedidentitet */
+.valor-logo-main {
+    height: 50px;
+}
+
+/* Center navigation */
+.nav-center {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.nav-left a {
+/* Menylenker */
+.nav-center a {
     color: white;
     text-decoration: none;
-    margin-right: 0;
     font-weight: 600;
 }
 
-.nav-left a:hover {
+.nav-center a:hover {
     text-decoration: underline;
 }
 
-/* ------------ Right side: logos ------------------- */
-.nav-right {
-    display: flex;
-    align-items: center;
+/* Partner logos */
+.nav-partners .logo {
+    opacity: 0.9;
+}
+
+.nav-partners .usn-logo {
+    height: 40px;
+}
+
+.nav-partners .kda-logo {
+    height: 60px;
 }
 
 .logo {
     margin-left: 15px;
 }
 
-.usn-logo {
-    height: 45px;
+.nav-partners{
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
 }
 
-.kda-logo {
-    height: 60px;
-}
+
+
 
 
 /*------------------Toggle-button-------------*/
@@ -245,7 +268,7 @@ main {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    max-width: 900px;
+    max-width: var(--content-width); 
     margin: 50px auto;
     padding: 50px;
 

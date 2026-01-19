@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Om oss – Bachelorgruppe</title>
     <script>
         (function () {
@@ -16,17 +19,25 @@
 </head>
 <body>
 
- <header>
+  <header>
+
         <div class="navbar">
-            <div class="nav-left">
 
-                <!-- THEME TOGGLE -->
-                <label for="themeToggle" class="theme-toggle">
-                    <input type="checkbox" id="themeToggle">
-                    <span class="toggle-track">
-                        <span class="toggle-thumb">
+    <!-- LEFT: VALOR logo -->
+    <div class="nav-brand">
+        <a href="about.html">
+            <img src="images/valor_white.png" alt="VALOR" class="logo valor-logo-main">
+        </a>
+    </div>
 
-                            <!-- SUN -->
+    <!-- CENTER: navigation -->
+    <div class="nav-center">
+        <!-- Darkmode toggle -->
+        <label for="themeToggle" class="theme-toggle">
+            <input type="checkbox" id="themeToggle">
+            <span class="toggle-track">
+                <span class="toggle-thumb">
+                    <!-- SUN -->
                             <svg class="thumb-icon sun" viewBox="0 0 24 24" aria-hidden="true">
                                 <!-- Sun core -->
                                 <circle cx="12" cy="12" r="5.5" fill="currentColor" />
@@ -50,31 +61,30 @@
                                 <path d="M21 12.8A9 9 0 1 1 11.2 3
                                      a7 7 0 0 0 9.8 9.8z" />
                             </svg>
+                </span>
+            </span>
+        </label>
 
-                        </span>
-                    </span>
-                </label>
+        <a href="index.html">Hjem</a>
+        <a href="project.html">Prosjekt</a>
+        <a href="updates.html">Oppdateringer</a>
+        <a href="about.html">Om oss</a>
+    </div>
 
-                <!-- Navigation -->
-                <a href="index.html">Hjem</a>
-                <a href="project.html">Prosjekt</a>
-                <a href="updates.html">Oppdateringer</a>
-                <a href="about.html">Om oss</a>
-            </div>
+    <!-- RIGHT: partner logos -->
+    <div class="nav-partners">
+        <a href="https://www.usn.no" target="_blank" rel="noopener">
+            <img src="images/USN-logo_hvit.png" alt="USN" class="logo usn-logo">
+        </a>
 
-            <!-- RIGHT: logos -->
-            <div class="nav-right">
-                <a href="https://www.usn.no" target="_blank" rel="noopener">
-                    <img src="images/USN-logo_hvit.png" alt="Universitetet i Sørøst-Norge" class="logo usn-logo">
-                </a>
+        <a href="https://www.kongsberg.com" target="_blank" rel="noopener">
+            <img src="images/kongsberg_logo_white_text.png" alt="Kongsberg"
+                class="logo kda-logo">
+        </a>
+    </div>
 
-                <a href="https://www.kongsberg.com" target="_blank" rel="noopener">
-                    <img src="images/kongsberg_logo_white_text.png" alt="Kongsberg Defence & Aerospace"
-                        class="logo kda-logo">
-                </a>
-            </div>
-
-        </div>
+</div>
+        
     </header>
 
  
@@ -142,9 +152,58 @@
 </main>
 
 
-<footer>
-    2026 – Bachelor Thesis Group 2 – USN
-</footer>
+    <footer class="site-footer compact-footer">
+        <div class="footer-content">
+
+            <!-- Project / Group -->
+            <div class="footer-section footer-brand">
+                <h3>VALOR</h3>
+
+                <ul>
+                    <li>
+                        <a href="about.html">Bachelorgruppe 2 – USN</a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.kongsberg.com"> Kongsberg Defence & Aerospace</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Kontakt -->
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+
+                <ul>
+                    <li>
+                        <a href="mailto:valor.usn@gmail.com">
+                            valor.usn@gmail.com
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="https://shorturl.at/Hnzhl">
+                            Rom 111 Bergseminaret, Kongsberg
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Links -->
+            <div class="footer-section">
+                <h3>Lenker</h3>
+                <ul>
+                    <li><a href="about.html">Om oss</a></li>
+                    <li><a href="project.html">Prosjekt</a></li>
+                    <li><a href="updates.html">Oppdateringer</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
 
 </body>
 </html>
