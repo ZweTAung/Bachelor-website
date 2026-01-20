@@ -11,7 +11,7 @@
     --card-bg: rgba(255, 255, 255, 0.65);
     --card-bg-strong: rgba(255, 255, 255, 0.75);
     --page-padding: 2px; 
-    --content-width: 1100px; 
+    --content-width: 1400px; 
 
     --overlay-dark: rgba(0, 0, 0, 0.35);
 
@@ -35,13 +35,20 @@ html.dark {
 
 
 
+
+
+
 /* -------------  Base ------------------- */
 body {
     margin: 0;
+     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
     color: var(--text-main);
     line-height: 1.6;
-    /*transition: background-image 0.4s ease;*/ 
+    transition: background-image 0.4s ease; 
 
     background-image: var(--bg-image);
     background-size: cover;
@@ -58,6 +65,14 @@ body::before {
     background: var(--overlay-dark);
     z-index: -1;
 }
+
+
+
+
+
+
+
+
 
 /* -------------   Header -----------  */
 header {
@@ -88,6 +103,10 @@ html.dark header {
     justify-content: space-between;
     align-items: center;
 }
+
+
+
+
 
 
 /* ---------- Navbar layout ---------- */
@@ -148,6 +167,7 @@ html.dark header {
 
 
 
+
 /*------------------Toggle-button-------------*/
 
 .theme-toggle {
@@ -194,6 +214,7 @@ html.dark header {
 
 
 /* -----  Thumb ------- */
+
 .toggle-thumb {
     position: absolute;
     top: 4px;
@@ -227,6 +248,7 @@ html.dark header {
 }
 
 
+
 /* -------------------- DARK MODE ACTIVE --------------- */
 
 .theme-toggle input:checked+.toggle-track {
@@ -241,6 +263,9 @@ html.dark header {
             #9ca3af,
             #6b7280);
 }
+
+
+
 
 
 
@@ -262,14 +287,20 @@ html.dark header {
 
 
 
+
+
+
 /* --------------- Global card ---------- */
 main {
+    flex: 1; 
+
     background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    max-width: var(--content-width); 
-    margin: 50px auto;
+    max-width: 1100px;   
+    width: calc(100% - 40px); 
+    margin: 40px auto;
     padding: 50px;
 
     border-radius: 18px;
@@ -278,6 +309,10 @@ main {
         0 12px 35px rgba(0, 0, 0, 0.25),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
+
+
+
+
 
 /* --------------   Text ------------- */
 
@@ -303,13 +338,21 @@ li {
 
 
 
+
+
+
+
+
+
+
+
 /* ----------------   Footer ------------ */
 
 .site-footer {
     background-color: var(--card-bg);
     color: var(--text-main);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: 3rem;
+    /*margin-top: 3rem;*/ 
     font-size: 0.95rem;
 }
 
@@ -395,6 +438,8 @@ li {
     .footer-section ul {
         margin-top: 0.25rem;
     }
+
+
 }
 
 
@@ -403,7 +448,13 @@ li {
 
 
 
+
+
+
+
 /* ------------   About us ---------------- */
+
+
 .intro {
     max-width: 700px;
     margin-bottom: 40px;
@@ -465,8 +516,14 @@ li {
 
 
 
+
+
+
 /* --------------------   Updates ------------- */
 /* Sprintene i hver sin boks */
+
+
+
 .timeline-title {
     text-align: center;
     margin-bottom: 60px;
@@ -482,7 +539,7 @@ li {
 
 .timeline-alt {
     position: relative;
-    max-width: 900px;
+    max-width: 100%;
     margin: auto;
     padding: 20px 0;
 }
@@ -494,24 +551,39 @@ li {
     bottom: 0;
     left: 50%;
     width: 3px;
-    background-color: var(--heading-color); /*rgba(15, 47, 95, 0.4)*/
+    background-color: var(--heading-color); 
     transform: translateX(-50%);
 }
 
-.timeline-row {
-    position: relative;
-    width: 50%;
-    padding: 20px 40px;
+
+@media (min-width: 1000px) {
+    .timeline-row {
+        position: relative;
+        width: 50%;                 
+        padding: 20px 24px;
+    }
+
+    .timeline-row.left {
+        left: -50%;                
+        text-align: right;
+    }
+
+    .timeline-row.right {
+        left: 50%;                
+        text-align: left;
+    }
 }
+
+
+
+
 
 .timeline-row.left {
     left: 0;
     text-align: right;
 }
 
-.timeline-row.right {
-    left: 50%;
-}
+
 
 .timeline-row::before {
     content: "";
@@ -531,6 +603,9 @@ li {
 .timeline-row.right::before {
     left: -7px;
 }
+
+
+
 
 
 
