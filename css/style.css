@@ -10,8 +10,8 @@
 
     --card-bg: rgba(255, 255, 255, 0.65);
     --card-bg-strong: rgba(255, 255, 255, 0.75);
-    --page-padding: 2px; 
-    --content-width: 1400px; 
+    --page-padding: 2px;
+    --content-width: 1400px;
 
     --overlay-dark: rgba(0, 0, 0, 0.35);
 
@@ -26,7 +26,7 @@ html.dark {
 
     --card-bg: rgba(15, 23, 42, 0.75);
     --card-bg-strong: rgba(15, 23, 42, 0.85);
-    --page-padding: 2px; 
+    --page-padding: 2px;
 
     --overlay-dark: rgba(0, 0, 0, 0.6);
 
@@ -41,14 +41,14 @@ html.dark {
 /* -------------  Base ------------------- */
 body {
     margin: 0;
-     min-height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
     color: var(--text-main);
     line-height: 1.6;
-    transition: background-image 0.4s ease; 
+    transition: background-image 0.4s ease;
 
     background-image: var(--bg-image);
     background-size: cover;
@@ -104,9 +104,23 @@ html.dark header {
     align-items: center;
 }
 
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
 
+    .nav-center {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 
-
+    .nav-partners {
+        justify-content: center;
+    }
+}
 
 
 /* ---------- Navbar layout ---------- */
@@ -157,7 +171,7 @@ html.dark header {
     margin-left: 15px;
 }
 
-.nav-partners{
+.nav-partners {
     display: flex;
     align-items: center;
     gap: 1.4rem;
@@ -182,11 +196,11 @@ html.dark header {
     pointer-events: none;
 }
 
-/* Track (glass look) */
+/* Track */
 .toggle-track {
     position: relative;
-    width: 92px;
-    height: 40px;
+    width: 72px;
+    height: 32px;
     border-radius: 999px;
     cursor: pointer;
 
@@ -213,14 +227,12 @@ html.dark header {
 
 
 
-/* -----  Thumb ------- */
-
 .toggle-thumb {
     position: absolute;
     top: 4px;
     left: 4px;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
 
     background: linear-gradient(145deg, #e5e7eb, #9ca3af);
@@ -258,7 +270,7 @@ html.dark header {
 }
 
 .theme-toggle input:checked+.toggle-track .toggle-thumb {
-    transform: translateX(52px);
+    transform: translateX(40px);
     background: linear-gradient(145deg,
             #9ca3af,
             #6b7280);
@@ -292,14 +304,14 @@ html.dark header {
 
 /* --------------- Global card ---------- */
 main {
-    flex: 1; 
+    flex: 1;
 
     background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    max-width: 1100px;   
-    width: calc(100% - 40px); 
+    max-width: 1100px;
+    width: calc(100% - 40px);
     margin: 40px auto;
     padding: 50px;
 
@@ -352,7 +364,7 @@ li {
     background-color: var(--card-bg);
     color: var(--text-main);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    /*margin-top: 3rem;*/ 
+    /*margin-top: 3rem;*/
     font-size: 0.95rem;
 }
 
@@ -360,7 +372,7 @@ li {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    justify-items: center; 
+    justify-items: center;
     padding: 0.5rem var(--page-padding);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -426,20 +438,19 @@ li {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/*
-   MOBILE TWEAKS
- */
 
-@media (max-width: 600px) {
+
+@media (max-width: 800px) {
     .footer-content {
+        grid-template-columns: 1fr;
+        /* ← stack vertically */
+        gap: 1.25rem;
         text-align: center;
     }
 
     .footer-section ul {
-        margin-top: 0.25rem;
+        align-items: center;
     }
-
-
 }
 
 
@@ -544,6 +555,8 @@ li {
     padding: 20px 0;
 }
 
+
+
 .timeline-alt::before {
     content: "";
     position: absolute;
@@ -551,37 +564,88 @@ li {
     bottom: 0;
     left: 50%;
     width: 3px;
-    background-color: var(--heading-color); 
+    background-color: var(--heading-color);
     transform: translateX(-50%);
 }
 
 
+
+
+
+
+
 @media (min-width: 1000px) {
+
     .timeline-row {
         position: relative;
-        width: 50%;                 
-        padding: 20px 24px;
+        width: 50%;
+        padding: 20px 40px;
     }
 
+    /* LEFT side */
     .timeline-row.left {
-        left: -50%;                
+        left: 0;
         text-align: right;
+        margin-right: 30px;
     }
 
+    /* RIGHT side */
     .timeline-row.right {
-        left: 50%;                
+        left: 50%;
+        text-align: left;
+        margin-left: 30px;
+    }
+
+    /* Dot positioning */
+    .timeline-row.left::before {
+        right: -7px;
+        left: auto;
+    }
+
+    .timeline-row.right::before {
+        left: -7px;
+        right: auto;
+    }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+    /* Move the timeline line to the left */
+    .timeline-alt::before {
+        left: 20px;
+        transform: none;
+    }
+
+    /* Stack rows vertically */
+    .timeline-row {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 20px 20px 20px 60px;
         text-align: left;
     }
+
+    /* REMOVE desktop offsets completely */
+    .timeline-row.left,
+    .timeline-row.right {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Align dots exactly on the line */
+    .timeline-row::before {
+        left: 13px;
+        right: auto;
+    }
 }
 
-
-
-
-
-.timeline-row.left {
-    left: 0;
-    text-align: right;
-}
 
 
 
@@ -596,13 +660,6 @@ li {
     z-index: 2;
 }
 
-.timeline-row.left::before {
-    right: -7px;
-}
-
-.timeline-row.right::before {
-    left: -7px;
-}
 
 
 
