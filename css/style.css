@@ -46,12 +46,11 @@ body {
     flex-direction: column;
 
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    color: #1f2933;
+    color: var(--text-main);
     line-height: 1.6;
     transition: background-image 0.4s ease;
-    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
 
-    background-image: url("../images/Backdrop.jpg");
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -63,7 +62,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--overlay-dark);
     z-index: -1;
 }
 
@@ -79,14 +78,26 @@ body::before {
 header {
     background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
     padding: 20px 0;
-    box-shadow: 0 0 12px 10px;
+    transition: background 0.4s ease;
 }
+
+html.dark header {
+    background: linear-gradient(90deg,
+            #020617,
+            #0f172a);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    background: linear-gradient(90deg,
+            rgba(2, 6, 23, 0.9),
+            rgba(15, 23, 42, 0.9));
+}
+
 
 /* -------------------  Navbar container ------------------- */
 .navbar {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-    padding: 0 15px;
+    padding: 0 var(--page-padding);
 
     display: flex;
     justify-content: space-between;
@@ -129,6 +140,7 @@ header {
 .nav-center {
     display: flex;
     align-items: center;
+    gap: 2rem;
 }
 
 /* Menylenker */
@@ -315,20 +327,18 @@ main {
 
 
 /* --------------   Text ------------- */
-h1 {
-    color: #0f2f5f;  
-    margin-top: 0;
-}
 
-h2 {
-    margin-top: 50px;
-    color: #0f2f5f;
+h1,
+h2,
+h3 {
+    color: var(--heading-color);
 }
 
 p,
 li {
-    color: #1f2933;
+    color: var(--text-main);
 }
+
 
 ul {
     padding-left: 20px;
@@ -469,7 +479,7 @@ li {
 }
 
 .team-card {
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--card-bg-strong);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -576,14 +586,12 @@ li {
     .timeline-row.left {
         left: 0;
         text-align: right;
-        margin-right: 30px;
     }
 
     /* RIGHT side */
     .timeline-row.right {
         left: 50%;
         text-align: left;
-        margin-left: 30px;
     }
 
     /* Dot positioning */
@@ -596,6 +604,18 @@ li {
         left: -7px;
         right: auto;
     }
+
+
+    .timeline-row.left .content {
+        margin-right: 40px;
+        margin-left: auto;
+    }
+
+    .timeline-row.right .content {
+        margin-left: 40px;
+        margin-right: auto;
+    }
+
 }
 
 
@@ -659,7 +679,7 @@ li {
 
 /* ------------- Timeline content------------ */
 .timeline-row .content {
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
