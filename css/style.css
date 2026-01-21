@@ -686,9 +686,10 @@ li {
     padding: 22px 26px;
     border-radius: 16px;
 
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    text-align: left;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .timeline-row .content h3 {
@@ -702,4 +703,55 @@ li {
     font-weight: 600;
     margin-bottom: 10px;
     color: #1f4f8f;
+}
+
+
+.timeline-image .content {
+    padding: 0;
+    overflow: hidden;
+}
+
+.timeline-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.timeline-row + .timeline-row {
+    margin-top: -20px;
+}
+
+
+
+/* --------- For bildet -------*/ 
+
+.sprint-with-image {
+    position: relative;
+}
+
+/* Bildet som eget kort */
+.sprint-image-card {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 310px;
+}
+
+/* Når teksten er på venstre side → bilde til høyre */
+.timeline-row.left .sprint-image-card {
+    left: calc(100% + 60px);
+}
+
+/* Når teksten er på høyre side → bilde til venstre */
+.timeline-row.right .sprint-image-card {
+    right: calc(100% + 60px);
+}
+
+/* Bildekort styling */
+.sprint-image-card img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
