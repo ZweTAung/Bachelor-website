@@ -469,7 +469,7 @@ li {
 .intro {
     max-width: 700px;
     margin-bottom: 40px;
-    color: #1f2933;
+    color: var(--text-main);
 }
 
 .team-grid {
@@ -509,19 +509,19 @@ li {
 
 .team-card h3 {
     margin: 10px 0 5px;
-    color: #0f2f5f;
+    color: var(--heading-color);
 }
 
 .team-card .role {
     font-weight: 600;
-    color: #1f4f8f;
+    color: var(--heading-color);
     margin-bottom: 10px;
     font-size: 0.95rem;
 }
 
 .team-card p {
     font-size: 0.9rem;
-    color: #1f2933;
+    color: var(--text-main);
 }
 
 
