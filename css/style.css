@@ -2,18 +2,59 @@
     box-sizing: border-box;
 }
 
+
+/* Light mode (default) */
+:root {
+    --text-main: #1f2933;
+    --heading-color: #0f2f5f;
+
+    --card-bg: rgba(255, 255, 255, 0.65);
+    --card-bg-strong: rgba(255, 255, 255, 0.75);
+    --page-padding: 2px;
+    --content-width: 1400px;
+
+    --overlay-dark: rgba(0, 0, 0, 0.35);
+
+    --bg-image: url("../images/Backdrop.jpg");
+}
+
+
+/* Dark mode */
+html.dark {
+    --text-main: #e5e7eb;
+    --heading-color: #93c5fd;
+
+    --card-bg: rgba(15, 23, 42, 0.75);
+    --card-bg-strong: rgba(15, 23, 42, 0.85);
+    --page-padding: 2px;
+
+    --overlay-dark: rgba(0, 0, 0, 0.6);
+
+    --bg-image: url("../images/valor_wallpaper_dark.png");
+}
+
+
+
+
+
+
 /* -------------  Base ------------------- */
 body {
     margin: 0;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    color: #1f2933;
-    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
-    background-image: url("../images/nasams-front-3.jpg");
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-image 0.4s ease;
+
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 
 /* Dark overlay  */
@@ -21,70 +62,257 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--overlay-dark);
     z-index: -1;
 }
+
+
+
+
+
+
+
+
 
 /* -------------   Header -----------  */
 header {
     background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
     padding: 20px 0;
+    transition: background 0.4s ease;
 }
+
+html.dark header {
+    background: linear-gradient(90deg,
+            #020617,
+            #0f172a);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    background: linear-gradient(90deg,
+            rgba(2, 6, 23, 0.9),
+            rgba(15, 23, 42, 0.9));
+}
+
 
 /* -------------------  Navbar container ------------------- */
 .navbar {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-    padding: 0 15px;
+    padding: 0 var(--page-padding);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* --------------- Left side: menu ----------*/
-.nav-left {
-    display: flex;
-    align-items: center;
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav-center {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-partners {
+        justify-content: center;
+    }
 }
 
-.nav-left a {
+
+/* ---------- Navbar layout ---------- */
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* VALOR – hovedidentitet */
+.valor-logo-main {
+    height: 50px;
+}
+
+/* Center navigation */
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Menylenker */
+.nav-center a {
     color: white;
     text-decoration: none;
-    margin-right: 25px;
     font-weight: 600;
 }
 
-.nav-left a:hover {
+.nav-center a:hover {
     text-decoration: underline;
 }
 
-/* ------------ Right side: logos ------------------- */
-.nav-right {
-    display: flex;
-    align-items: center;
+/* Partner logos */
+.nav-partners .logo {
+    opacity: 0.9;
+}
+
+.nav-partners .usn-logo {
+    height: 40px;
+}
+
+.nav-partners .kda-logo {
+    height: 60px;
 }
 
 .logo {
     margin-left: 15px;
 }
 
-.usn-logo {
-    height: 45px;
+.nav-partners {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
 }
 
-.kda-logo {
-    height: 60px;
+
+
+
+
+
+/*------------------Toggle-button-------------*/
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
 }
+
+/* Skjul checkbox korrekt */
+.theme-toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Track */
+.toggle-track {
+    position: relative;
+    width: 72px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.05));
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+        0 8px 20px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    box-sizing: border-box;
+
+    transition: background 0.4s ease;
+}
+
+
+
+
+.toggle-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    background: linear-gradient(145deg, #e5e7eb, #9ca3af);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.45);
+
+    transition: transform 0.35s cubic-bezier(.4, 0, .2, 1),
+        background 0.35s ease;
+    z-index: 1;
+}
+
+
+.thumb-icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+
+
+/* -------------------- DARK MODE ACTIVE --------------- */
+
+.theme-toggle input:checked+.toggle-track {
+    background: linear-gradient(145deg,
+            rgba(15, 23, 42, 0.9),
+            rgba(2, 6, 23, 0.9));
+}
+
+.theme-toggle input:checked+.toggle-track .toggle-thumb {
+    transform: translateX(40px);
+    background: linear-gradient(145deg,
+            #9ca3af,
+            #6b7280);
+}
+
+
+
+
+
+
+/* ---------- Icon animation --------- */
+
+
+
+/* Light mode */
+.theme-toggle input:not(:checked)+.toggle-track .sun {
+    opacity: 1;
+}
+
+/* Dark mode */
+.theme-toggle input:checked+.toggle-track .moon {
+    opacity: 1;
+}
+
+
+
+
+
+
+
 
 /* --------------- Global card ---------- */
 main {
-    background: rgba(255, 255, 255, 0.65);
+    flex: 1;
+
+    background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
     max-width: 1100px;
-    margin: 50px auto;
+    width: calc(100% - 40px);
+    margin: 40px auto;
     padding: 50px;
 
     border-radius: 18px;
@@ -94,21 +322,23 @@ main {
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* --------------   Text ------------- */
-h1 {
-    color: #0f2f5f;  
-    margin-top: 0;
-}
 
-h2 {
-    margin-top: 50px;
-    color: #0f2f5f;
+
+
+
+/* --------------   Text ------------- */
+
+h1,
+h2,
+h3 {
+    color: var(--heading-color);
 }
 
 p,
 li {
-    color: #1f2933;
+    color: var(--text-main);
 }
+
 
 ul {
     padding-left: 20px;
@@ -118,15 +348,124 @@ li {
     margin-bottom: 8px;
 }
 
+
+
+
+
+
+
+
+
+
+
 /* ----------------   Footer ------------ */
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #ddd;
-    font-size: 0.9rem;
+
+.site-footer {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    /*margin-top: 3rem;*/
+    font-size: 0.95rem;
 }
 
+/* Layout */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+    padding: 0.5rem var(--page-padding);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Sections */
+.footer-section h3 {
+    margin-bottom: 0.4rem;
+    color: var(--heading-color);
+    font-size: 1rem;
+}
+
+.footer-section p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* Links */
+.footer-section a {
+    color: var(--heading-color);
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+/* Link lists */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.35rem;
+}
+
+/* VALOR branding */
+.footer-brand h3 {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* Bottom bar */
+.footer-bottom {
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* 
+   DARK MODE
+ */
+
+.dark .site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dark .footer-bottom {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+
+@media (max-width: 800px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        /* ← stack vertically */
+        gap: 1.25rem;
+        text-align: center;
+    }
+
+    .footer-section ul {
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 /* ------------   About us ---------------- */
+
+
 .intro {
     max-width: 700px;
     margin-bottom: 40px;
@@ -140,7 +479,7 @@ footer {
 }
 
 .team-card {
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--card-bg-strong);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -185,26 +524,38 @@ footer {
     color: #1f2933;
 }
 
+
+
+
+
+
+
 /* --------------------   Updates ------------- */
+/* Sprintene i hver sin boks */
+
+
+
 .timeline-title {
     text-align: center;
     margin-bottom: 60px;
-    color: #0f2f5f;
+    color: var(--heading-color);
 }
 
 .phase-title {
     text-align: center;
     margin: 80px 0 40px;
     font-size: 1.8rem;
-    color: #0f2f5f;
+    color: var(--heading-color);
 }
 
 .timeline-alt {
     position: relative;
-    max-width: 900px;
+    max-width: 100%;
     margin: auto;
     padding: 20px 0;
 }
+
+
 
 .timeline-alt::before {
     content: "";
@@ -213,24 +564,100 @@ footer {
     bottom: 0;
     left: 50%;
     width: 3px;
-    background-color: rgba(15, 47, 95, 0.4);
+    background-color: var(--heading-color);
     transform: translateX(-50%);
 }
 
-.timeline-row {
-    position: relative;
-    width: 50%;
-    padding: 20px 40px;
+
+
+
+
+
+
+@media (min-width: 1000px) {
+
+    .timeline-row {
+        position: relative;
+        width: 50%;
+        padding: 20px 40px;
+    }
+
+    /* LEFT side */
+    .timeline-row.left {
+        left: 0;
+        text-align: right;
+    }
+
+    /* RIGHT side */
+    .timeline-row.right {
+        left: 50%;
+        text-align: left;
+    }
+
+    /* Dot positioning */
+    .timeline-row.left::before {
+        right: -7px;
+        left: auto;
+    }
+
+    .timeline-row.right::before {
+        left: -7px;
+        right: auto;
+    }
+
+
+    .timeline-row.left .content {
+        margin-right: 40px;
+        margin-left: auto;
+    }
+
+    .timeline-row.right .content {
+        margin-left: 40px;
+        margin-right: auto;
+    }
+
 }
 
-.timeline-row.left {
-    left: 0;
-    text-align: right;
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+    /* Move the timeline line to the left */
+    .timeline-alt::before {
+        left: 20px;
+        transform: none;
+    }
+
+    /* Stack rows vertically */
+    .timeline-row {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 20px 20px 20px 60px;
+        text-align: left;
+    }
+
+    /* REMOVE desktop offsets completely */
+    .timeline-row.left,
+    .timeline-row.right {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Align dots exactly on the line */
+    .timeline-row::before {
+        left: 13px;
+        right: auto;
+    }
 }
 
-.timeline-row.right {
-    left: 50%;
-}
+
+
 
 .timeline-row::before {
     content: "";
@@ -243,31 +670,31 @@ footer {
     z-index: 2;
 }
 
-.timeline-row.left::before {
-    right: -7px;
-}
 
-.timeline-row.right::before {
-    left: -7px;
-}
+
+
+
+
+
 
 /* ------------- Timeline content------------ */
 .timeline-row .content {
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
     padding: 22px 26px;
     border-radius: 16px;
 
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    text-align: left;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .timeline-row .content h3 {
     margin-top: 0;
-    color: #0f2f5f;
+    color: var(--heading-color)
 }
 
 .timeline-row .date {
@@ -276,4 +703,55 @@ footer {
     font-weight: 600;
     margin-bottom: 10px;
     color: #1f4f8f;
+}
+
+
+.timeline-image .content {
+    padding: 0;
+    overflow: hidden;
+}
+
+.timeline-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.timeline-row + .timeline-row {
+    margin-top: -20px;
+}
+
+
+
+/* --------- For bildet -------*/ 
+
+.sprint-with-image {
+    position: relative;
+}
+
+/* Bildet som eget kort */
+.sprint-image-card {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 310px;
+}
+
+/* Når teksten er på venstre side → bilde til høyre */
+.timeline-row.left .sprint-image-card {
+    left: calc(100% + 60px);
+}
+
+/* Når teksten er på høyre side → bilde til venstre */
+.timeline-row.right .sprint-image-card {
+    right: calc(100% + 60px);
+}
+
+/* Bildekort styling */
+.sprint-image-card img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
