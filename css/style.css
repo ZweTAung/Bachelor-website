@@ -72,13 +72,15 @@ body::before {
 
 
 
-
-
 /* -------------   Header -----------  */
 header {
     background: linear-gradient(90deg, #0f2f5f, #1f4f8f);
     padding: 20px 0;
     transition: background 0.4s ease;
+
+    position: relative;
+    z-index: 20;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
 html.dark header {
@@ -689,7 +691,7 @@ li {
     text-align: left;
 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .timeline-row .content h3 {
@@ -718,13 +720,13 @@ li {
     border-radius: 16px;
 }
 
-.timeline-row + .timeline-row {
+.timeline-row+.timeline-row {
     margin-top: -20px;
 }
 
 
 
-/* --------- For bildet -------*/ 
+/* --------- For bildet -------*/
 
 .sprint-with-image {
     position: relative;
@@ -753,5 +755,5 @@ li {
     width: 100%;
     display: block;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
