@@ -366,7 +366,6 @@ li {
     background-color: var(--card-bg);
     color: var(--text-main);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    /*margin-top: 3rem;*/
     font-size: 0.95rem;
 }
 
@@ -541,9 +540,8 @@ li {
 
 
 /* --------------------   Updates ------------- */
+
 /* Sprintene i hver sin boks */
-
-
 
 .timeline-title {
     text-align: center;
@@ -577,8 +575,6 @@ li {
     background-color: var(--heading-color);
     transform: translateX(-50%);
 }
-
-
 
 
 
@@ -631,19 +627,15 @@ li {
 
 
 
-
-
-
-
 @media (max-width: 900px) {
 
-    /* Move the timeline line to the left */
+    
     .timeline-alt::before {
         left: 20px;
         transform: none;
     }
 
-    /* Stack rows vertically */
+    
     .timeline-row {
         position: relative;
         width: 100%;
@@ -652,14 +644,14 @@ li {
         text-align: left;
     }
 
-    /* REMOVE desktop offsets completely */
+    
     .timeline-row.left,
     .timeline-row.right {
         margin-left: 0;
         margin-right: 0;
     }
 
-    /* Align dots exactly on the line */
+    
     .timeline-row::before {
         left: 13px;
         right: auto;
@@ -728,8 +720,9 @@ li {
     border-radius: 16px;
 }
 
+
 .timeline-row+.timeline-row {
-    margin-top: -20px;
+    margin-top: 20px;
 }
 
 
@@ -741,6 +734,7 @@ li {
 }
 
 /* Bildet som eget kort */
+
 .sprint-image-card {
     position: absolute;
     top: 50%;
@@ -748,14 +742,17 @@ li {
     width: 310px;
 }
 
+
+
+
 /* Når teksten er på venstre side → bilde til høyre */
 .timeline-row.left .sprint-image-card {
-    left: calc(100% + 60px);
+    left: calc(100% + 80px);
 }
 
 /* Når teksten er på høyre side → bilde til venstre */
 .timeline-row.right .sprint-image-card {
-    right: calc(100% + 60px);
+    right: calc(100% + 80px);
 }
 
 /* Bildekort styling */
