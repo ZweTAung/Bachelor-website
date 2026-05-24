@@ -762,3 +762,12 @@ li {
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+/* Bilde midt på siden */
+.project-image img {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
