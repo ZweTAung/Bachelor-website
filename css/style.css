@@ -765,7 +765,7 @@ li {
 
 /* Bilde midt på siden */
 .project-image img {
-    width: 50%;
+    width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
